@@ -56,7 +56,6 @@ router.get('/callback', (req, res) => {
     });
 });
 
-// rest of the code ...
 
 router.get('/refresh_token', (req, res) => {
   console.log("Callback hit");  // Add this line

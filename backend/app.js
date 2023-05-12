@@ -17,6 +17,18 @@ app.use(session({
 }));
 
 app.get('/handle_tokens', function(req, res) {
+  const { access_token, refresh_token } = req.query;
+
+  if (!access_token || !refresh_token) {
+    return res.status(400).json({ error: 'Missing access or refresh token' });
+  }
+
+  // Store the tokens in the session
+  req.session.access_token = access_token;
+  req.session.refresh_token = refresh_token;
+
+  // Send a simple confirmation message
+  res.send('Tokens received and stored.');
 });
 
 
