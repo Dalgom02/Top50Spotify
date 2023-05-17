@@ -30,7 +30,7 @@ body {
     margin-right: 1em;
 }
 
-.track-item p {
+.artist-item p, .track-item p {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -40,10 +40,15 @@ body {
     width: 5%;
 }
 
-.track-name {
+.track-name, .artist-name {
     width: 40%;
 }
 
 .track-artist {
     width: 50%;
+}
+
+.artist-item a img, .track-item a img {
+    width: 24px;
+    height: 24px;
 }

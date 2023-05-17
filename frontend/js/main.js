@@ -108,15 +108,15 @@ var access_token = params.access_token,
       let html = '';
       artists.items.forEach((artist, index) => {
           html += `
-            <div class="artist-item">
-                <img src="${artist.images[0].url}" alt="${artist.name}" />
-                <p>${index + 1}. ${artist.name}</p>
-            </div>`;
-      });
+          <div class="artist-item">
+          <img src="${artist.images[0].url}" alt="${artist.name}" />
+          <p>${index + 1}. ${artist.name} <a href="${artist.external_urls.spotify}" target="_blank"><img src="spotify-logo.png" alt="Open this artist in Spotify" title="Open this artist in Spotify" /></a></p>
+      </div>`;
+            });
     
       artistsViewContainer.innerHTML = html;
     }
-    
+        
     async function updateTracksView(time_range, token) {
       const data = await getTopTracks(time_range, token);
       const tracks = data[time_range];
@@ -125,19 +125,20 @@ var access_token = params.access_token,
       tracks.items.forEach((track, index) => {
           const trackArtists = track.artists.map(artist => artist.name).join(', ');
           html += `
-            <div class="track-item">
-                <img src="${track.album.images[0].url}" alt="${track.name}" />
-                <p>
-                  <span class="track-rank">${index + 1}.</span>
-                  <span class="track-name">${track.name}</span>
-                  <span class="track-artist">${trackArtists}</span>
-                </p>
-            </div>`;
-      });
+          <div class="track-item">
+          <img src="${track.album.images[0].url}" alt="${track.name}" />
+          <p>
+            <span class="track-rank">${index + 1}.</span>
+            <span class="track-name">${track.name}</span>
+            <span class="track-artist">${trackArtists}</span>
+            <a href="${track.external_urls.spotify}" target="_blank"><img src="spotify-logo.png" alt="Open this track in Spotify" title="Open this track in Spotify" /></a>
+          </p>
+      </div>`;
+            });
     
       tracksViewContainer.innerHTML = html;
     }
-            
+                
 async function updateGenresView(time_range, token) {
   const data = await getTopArtists(time_range, token);
   const artists = data[time_range];
