@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Stats</title>
+</head>
+<body>
+    <div id="login-container">
+        <button id="login-button">Login with Spotify</button>
+    </div>
+
+    <div id="data-container" style="display: none;">
+        <h1>Your Spotify Stats</h1>
+        <label for="time-range-select">Time Range:</label>
+        <select id="time-range-select">
+            <option value="short_term">Last 4 weeks</option>
+            <option value="medium_term">Last 6 months</option>
+            <option value="long_term">All time</option>
+        </select>
+
+        <div id="artists-view-container">
+            <h2>Top Artists</h2>
+        </div>
+    
+        <div id="tracks-view-container">
+            <h2>Top Tracks</h2>
+        </div>
+    
+        <div id="genres-view-container">
+            <h2>Top Genres</h2>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

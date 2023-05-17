@@ -3,7 +3,9 @@ const axios = require('axios');
 const querystring = require('querystring');
 const router = express.Router();
 
+
 const redirect_uri = process.env.REDIRECT_URI;
+
 
 router.get('/login', (req, res) => {
   res.redirect('https://accounts.spotify.com/authorize?' +
@@ -15,8 +17,10 @@ router.get('/login', (req, res) => {
     }));
 });
 
+
 router.get('/callback', (req, res) => {
   const code = req.query.code || null;
+
 
   const authOptions = {
     url: 'https://accounts.spotify.com/api/token',
@@ -32,23 +36,28 @@ router.get('/callback', (req, res) => {
     }
   };
 
+
   axios.post(authOptions.url, authOptions.data, {headers: authOptions.headers})
     .then(response => {
       const { data } = response;
       const access_token = data.access_token,
             refresh_token = data.refresh_token;
 
+
+      console.log(`Access Token: ${access_token}`);
+      console.log(`Refresh Token: ${refresh_token}`);
+
+
       // Store the access and refresh tokens in the user session
       req.session.access_token = access_token;
       req.session.refresh_token = refresh_token;
 
-      res.redirect('/handle_tokens?' +
-      querystring.stringify({
-        access_token: access_token,
-        refresh_token: refresh_token
-      }));
-        })
+
+      // Redirect to the stats page
+      res.redirect('/stats#authenticated');
+    })
     .catch(error => {
+      console.log(error);
       res.redirect('/#' +
         querystring.stringify({
           error: 'invalid_token'
@@ -60,6 +69,7 @@ router.get('/callback', (req, res) => {
 router.get('/refresh_token', (req, res) => {
   console.log("Callback hit");  // Add this line
   const refresh_token = req.session.refresh_token;
+
 
   const authOptions = {
     url: 'https://accounts.spotify.com/api/token',
@@ -74,13 +84,16 @@ router.get('/refresh_token', (req, res) => {
     }
   };
 
+
   axios.post(authOptions.url, authOptions.data, {headers: authOptions.headers})
     .then(response => {
       const { data } = response;
       const access_token = data.access_token;
 
+
       // Update the access token in the user session
       req.session.access_token = access_token;
+
 
       res.send({
         'access_token': access_token
@@ -90,5 +103,6 @@ router.get('/refresh_token', (req, res) => {
       res.status(500).send(error.toString());
     });
 });
+
 
 module.exports = router;
