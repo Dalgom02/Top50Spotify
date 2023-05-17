@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Stats</title>
+    <title>Spotify Top 50</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="login-container">
@@ -12,27 +13,49 @@
     </div>
 
     <div id="data-container" style="display: none;">
-        <h1>Your Spotify Stats</h1>
-        <label for="time-range-select">Time Range:</label>
         <select id="time-range-select">
             <option value="short_term">Last 4 weeks</option>
             <option value="medium_term">Last 6 months</option>
             <option value="long_term">All time</option>
         </select>
+        
+        <!-- Tab Navigation -->
+        <div class="text-center">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" id="artists-tab" data-toggle="pill" href="#artists">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tracks-tab" data-toggle="pill" href="#tracks">Tracks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="genres-tab" data-toggle="pill" href="#genres">Genres</a>
+                </li>
+            </ul>
+        </div>
 
-        <div id="artists-view-container">
-            <h2>Top Artists</h2>
-        </div>
-    
-        <div id="tracks-view-container">
-            <h2>Top Tracks</h2>
-        </div>
-    
-        <div id="genres-view-container">
-            <h2>Top Genres</h2>
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <div id="artists" class="tab-pane fade show active">
+                <h2>Top Artists (<span id="artist-time-range">short_term</span>)</h2>
+                <div id="artists-view-container"></div>
+            </div>
+        
+            <div id="tracks" class="tab-pane fade">
+                <h2>Top Tracks (<span id="track-time-range">short_term</span>)</h2>
+                <div id="tracks-view-container"></div>
+            </div>
+        
+            <div id="genres" class="tab-pane fade">
+                <h2>Top Genres (<span id="genre-time-range">short_term</span>)</h2>
+                <div id="genres-view-container"></div>
+            </div>
         </div>
     </div>
-
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="js/api.js"></script>
     <script src="js/main.js"></script>
 </body>
