@@ -65,7 +65,7 @@ async function updateData() {
 
 async function updateArtistsView(time_range, token) {
   const data = await getTopArtists(time_range, token);
-  const artists = data.short_term;
+  const artists = data[time_range];
 
   let html = '';
   artists.items.forEach((artist, index) => {
@@ -77,7 +77,7 @@ async function updateArtistsView(time_range, token) {
 
 async function updateTracksView(time_range, token) {
   const data = await getTopTracks(time_range, token);
-  const tracks = data.short_term;
+  const tracks = data[time_range];
 
   let html = '';
   tracks.items.forEach((track, index) => {
@@ -89,7 +89,7 @@ async function updateTracksView(time_range, token) {
 
 async function updateGenresView(time_range, token) {
   const data = await getTopArtists(time_range, token);
-  const artists = data.short_term;
+  const artists = data[time_range];
 
   // Extract the genres from the artists data and count their frequency
   let genresCount = {};

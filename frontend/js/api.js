@@ -10,7 +10,9 @@ async function getTopArtists(time_range, token) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        return await response.json();
+        const data = await response.json();
+        console.log('getTopArtists data:', data);  // Add this line
+        return data;
     } catch (error) {
         console.error('Error getting top artists:', error);
     }
@@ -28,11 +30,14 @@ async function getTopTracks(time_range, token) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        return await response.json();
+        const data = await response.json();
+        console.log('getTopTracks data:', data);  // Add this line
+        return data;
     } catch (error) {
         console.error('Error getting top tracks:', error);
     }
 }
+
 
 async function createPlaylist(userId, token, name, uris) {
     try {
