@@ -11,6 +11,8 @@ const genresViewContainer = document.getElementById('genres-view-container');
 const artistsTab = document.getElementById('artists-tab');
 const tracksTab = document.getElementById('tracks-tab');
 const genresTab = document.getElementById('genres-tab');
+const slider = document.querySelector(".slider");
+
 
 loginButton.addEventListener('click', function() {
     // Here, you'll need to redirect the user to your /auth/login route
@@ -52,6 +54,12 @@ tracksTab.addEventListener('click', function() {
 
 genresTab.addEventListener('click', function() {
     updateData();
+});
+
+const checkbox = document.getElementById('checkbox');
+
+checkbox.addEventListener('change', () => {
+  document.body.classList.toggle('dark-mode');
 });
 
 
