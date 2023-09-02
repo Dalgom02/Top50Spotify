@@ -16,7 +16,7 @@ const slider = document.querySelector(".slider");
 
 loginButton.addEventListener('click', function() {
     // Here, you'll need to redirect the user to your /auth/login route
-    window.location.href = 'https://top50spotifystats.vercel.app/auth/login';
+    window.location.href = 'https://top50spotify.vercel.app/auth/login';
   });
 
 window.addEventListener('hashchange', function() {
