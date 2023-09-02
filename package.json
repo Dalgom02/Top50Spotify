@@ -1,17 +1,21 @@
 {
   "name": "spotifytop50",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A project to showcase a user's top 50 Spotify tracks and artists.",
+  "main": "backend/app.js",
   "scripts": {
     "start": "node backend/app.js"
-  },  
-  "keywords": [],
-  "author": "",
+  },
+  "keywords": [
+    "spotify",
+    "top50",
+    "express"
+  ],
+  "author": "Dhruv Dinesh",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-session": "^1.17.3"
   }
