@@ -1,6 +1,6 @@
 async function getTopArtists(time_range, token) {
     try {
-        const response = await fetch(`http://localhost:3000/api/top-artists?time_range=${time_range}`, {
+        const response = await fetch(`https://top50spotify-2e12eb62b0ed.herokuapp.com/api/top-artists?time_range=${time_range}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -20,7 +20,7 @@ async function getTopArtists(time_range, token) {
 
 async function getTopTracks(time_range, token) {
     try {
-        const response = await fetch(`http://localhost:3000/api/top-tracks?time_range=${time_range}`, {
+        const response = await fetch(`https://top50spotify-2e12eb62b0ed.herokuapp.com/api/top-tracks?time_range=${time_range}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

@@ -16,7 +16,7 @@ const slider = document.querySelector(".slider");
 
 loginButton.addEventListener('click', function() {
     // Here, you'll need to redirect the user to your /auth/login route
-    window.location.href = 'http://localhost:3000/auth/login';
+    window.location.href = 'https://top50spotify-2e12eb62b0ed.herokuapp.com/auth/login';
   });
 
 window.addEventListener('hashchange', function() {
