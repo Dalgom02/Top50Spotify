@@ -24,9 +24,14 @@ app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
 
 
+// Redirect root to stats page
+app.get('/', (req, res) => {
+  res.redirect('/stats');
+});
+
 // Serve the stats page
 app.get('/stats', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/stats.html'));
+  res.sendFile(path.join(__dirname, '../frontend/stats.html'));
 });
 
 
