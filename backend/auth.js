@@ -104,5 +104,15 @@ router.get('/refresh_token', (req, res) => {
     });
 });
 
+router.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if(err) {
+      return res.redirect('/stats');
+    }
+    res.clearCookie('session');
+    res.redirect('/');  // or wherever you want to send them after logout
+  });
+});
+
 
 module.exports = router;

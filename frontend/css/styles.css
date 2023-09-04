@@ -197,7 +197,8 @@ body.dark-mode #time-range-select:hover {
   width: 100%;    /* take up the full viewport width */
 }
 
-#login-button {
+#logout-button {
+  margin-left: 15px;  /* spacing between the dropdown and the button */
   padding: 10px 20px;
   background-color: #1DB954;
   color: #fff;
@@ -208,6 +209,6 @@ body.dark-mode #time-range-select:hover {
   transition: background-color 0.3s ease;
 }
 
-#login-button:hover {
+#logout-button:hover {
   background-color: #1AA34A;
 }

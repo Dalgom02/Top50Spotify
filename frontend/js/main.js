@@ -6,6 +6,7 @@ const timeRangeSelect = document.getElementById('time-range-select');
 const artistsViewContainer = document.getElementById('artists-view-container');
 const tracksViewContainer = document.getElementById('tracks-view-container');
 const genresViewContainer = document.getElementById('genres-view-container');
+const logoutButton = document.getElementById('logout-button');
 
 // Tabs
 const artistsTab = document.getElementById('artists-tab');
@@ -176,4 +177,11 @@ async function updateGenresView(time_range, token) {
   });
 
   genresViewContainer.innerHTML = html;
+
+
+  
 }
+
+logoutButton.addEventListener('click', function() {
+  window.location.href = 'https://top50spotify-2e12eb62b0ed.herokuapp.com/auth/logout';
+});
