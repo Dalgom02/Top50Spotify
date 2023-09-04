@@ -197,6 +197,21 @@ body.dark-mode #time-range-select:hover {
   width: 100%;    /* take up the full viewport width */
 }
 
+#login-button {
+  padding: 10px 20px;
+  background-color: #1DB954;  /* Spotify green */
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#login-button:hover {
+  background-color: #1AA34A;  /* Darker shade of green for hover effect */
+}
+
 #logout-button {
   margin-left: 15px;  /* spacing between the dropdown and the button */
   padding: 10px 20px;
